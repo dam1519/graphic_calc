@@ -20,14 +20,13 @@ while running:
     if graph_flag == 1:
         for x in range(-400,400):
             for y in range(-300,300):
-                inputi = "x^2+y^2"
-                graph_input = inputi.replace("^", "**")
-                result = eval(graph_input)
-                print("x", x)
-                print("y", y)
-                print(result)
-                if result == 50**2:
-                    pygame.draw.rect(graph, (255, 0, 0), (x + 400, y + 300, 1, 1))
+                try:
+                    result = eval(graph_input)
+                    result_eq = eval(eq)
+                    if result == result_eq:
+                        pygame.draw.rect(graph, (255, 0, 0), (x + 400, -y + 300, 1, 1))
+                except:
+                    continue
         graph_flag = 0
 
 
