@@ -23,6 +23,7 @@ while running:
 
     if graph_flag == 1:
         for x in range(-400,400):
+            pygame.event.pump()
             for y in range(-300,300):
                 try:
                     result = eval(graph_input)
