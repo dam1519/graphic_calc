@@ -10,7 +10,11 @@ you need to install pygame by command
 
 ### some results
 
-i will add something here
+<img width="800" height="600" alt="круг" src="https://github.com/user-attachments/assets/ede7a776-442f-411a-8826-d50de3c901d4" />
+
+<img width="800" height="600" alt="парабола" src="https://github.com/user-attachments/assets/4ed81f15-f4ab-4ca6-b90b-c3add05d9b6e" />
+
+<img width="800" height="600" alt="квадрат" src="https://github.com/user-attachments/assets/a40efc07-6dcc-4a80-9b4c-9824a3cd161b" />
 
 ### changelog
 
@@ -39,7 +43,11 @@ i translate text with ai because i bad know english. this text dont translated w
 
 ### немножечко результатов
 
-я добавлю сюда че-нибудь
+<img width="800" height="600" alt="круг" src="https://github.com/user-attachments/assets/ede7a776-442f-411a-8826-d50de3c901d4" />
+
+<img width="800" height="600" alt="парабола" src="https://github.com/user-attachments/assets/4ed81f15-f4ab-4ca6-b90b-c3add05d9b6e" />
+
+<img width="800" height="600" alt="квадрат" src="https://github.com/user-attachments/assets/a40efc07-6dcc-4a80-9b4c-9824a3cd161b" />
 
 ### список изменений
 
