@@ -30,6 +30,10 @@ Fixed line gaps 😎 and now it plots parabolas
 
 Added some functions and now it plots a square
 
+#### 0.22
+
+Added some functions and optimisation
+
 ### notice for eng
 
 i translate text with ai because i bad know english. this text dont translated with ai
@@ -62,3 +66,8 @@ i translate text with ai because i bad know english. this text dont translated w
 #### 0.21
 
 я добавил немного новых функций и теперь оно считает квадрат по умолчанию
+
+
+#### 0.22
+
+немножечко функций и оптимизации
