@@ -4,9 +4,9 @@ import math
 # ;D
 
 graph_flag = 1
-inputi = "x"
+inputi = "x^2+y^2"
 graph_input = inputi.replace("^", "**")
-raw_eq = "y"
+raw_eq = "50^2"
 eq = raw_eq.replace("^", "**")
 
 pygame.init()
@@ -26,6 +26,8 @@ contx = {"sin": math.sin,
          "abs": abs,
          "pi": math.pi,
          "e": math.e}
+
+pixel = pygame.PixelArray(graph)
 
 running = True
 while running:
@@ -53,7 +55,7 @@ while running:
                     nexty = raw_nexty - result
                     thickness = (nextx ** 2 + nexty ** 2) ** 0.5
                     if thickness > 0 and abs(result - result_eq) / thickness < 0.99:
-                        graph.set_at((x + 400, -y + 300), (255, 0, 0))
+                        pixel[x + 400, -y + 300] = (255, 0, 0)
                 except:
                     continue
 
