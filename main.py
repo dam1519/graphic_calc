@@ -4,7 +4,7 @@ import math
 # ;D
 
 graph_flag = 1
-inputi = "x^2+y^2"
+inputi = "max(abs(x), abs(y))"
 graph_input = inputi.replace("^", "**")
 raw_eq = "50^2"
 eq = raw_eq.replace("^", "**")
