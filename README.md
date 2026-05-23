@@ -1,5 +1,7 @@
 # graphing calc
 
+[русские сюда](https://github.com/dam1519/graphic_calc#%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B5-%D1%81%D1%8E%D0%B4%D0%B0)
+
 ## eng
 it's a graphing calc made with python pygame. it can: plot the graph x^2+y^2=50^2
 
