@@ -6,7 +6,7 @@ import math
 graph_flag = 1
 inputi = "max(abs(x), abs(y))"
 graph_input = inputi.replace("^", "**")
-raw_eq = "50^2"
+raw_eq = "50"
 eq = raw_eq.replace("^", "**")
 
 pygame.init()
