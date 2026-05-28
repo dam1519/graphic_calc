@@ -3,12 +3,15 @@
 [русские сюда](https://github.com/dam1519/graphic_calc#%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B5-%D1%81%D1%8E%D0%B4%D0%B0)
 
 ## eng
-it's a graphing calc made with python pygame. it can: plot the graph x^2+y^2=50^2
+it's a graphing calc made with python pygame. it can: plot the graph max(|x|,|y|) = 50
 
 ### how to run
 
 you need to install pygame by command
-`pip install pygame`
+
+```bash
+pip install pygame
+```
 
 ### some results
 
@@ -36,6 +39,10 @@ Added some functions and now it plots a square
 
 Added some functions and optimisation
 
+#### 0.3
+
+Move code to one class. I didn't move the loop because I just didn't
+
 ### notice for eng
 
 i translate text with ai because i bad know english. this text dont translated with ai
@@ -45,7 +52,11 @@ i translate text with ai because i bad know english. this text dont translated w
 
 ### для запуска
 
-для того чтобы запустить код вам надо установить pygame командой `pip install pygame`
+для того чтобы запустить код вам надо установить pygame командой 
+
+```bash
+pip install pygame
+```
 
 ### немножечко результатов
 
@@ -73,3 +84,7 @@ i translate text with ai because i bad know english. this text dont translated w
 #### 0.22
 
 немножечко функций и оптимизации
+
+#### 0.3
+
+перемещение кода в один класс. а цикл я не перенес потому что не перенес
