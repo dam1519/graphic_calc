@@ -1,6 +1,8 @@
 import pygame
 import math
 
+# spagheti very good spagheti/ спагети очень хорошие спагети
+
 class GraphEngine:
     def __init__(self, graph, eq):
         self.graph_flag = 1
