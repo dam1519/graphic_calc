@@ -18,45 +18,52 @@ class GraphicEngine:
                  "e": math.e}
         self.compil_graph = compile(self.graph_input, '<string>', 'eval')
         self.compil_eq = compile(self.eq, '<string>', 'eval')
-        self.points = []
 
     def Calculation(self):
+        points = []
         for x in range(-400, 400):
             for y in range(-300, 300):
                 try:
                     self.contx["x"] = x
                     self.contx["y"] = y
-                    self.result = eval(self.compil_graph, {}, self.contx)
-                    self.result_eq = eval(self.compil_eq, {}, self.contx)
+                    result = eval(self.compil_graph, {}, self.contx)
+                    result_eq = eval(self.compil_eq, {}, self.contx)
 
                     self.contx["x"] = x + 1
-                    self.raw_nextx = eval(self.compil_graph, {}, self.contx)
+                    raw_nextx = eval(self.compil_graph, {}, self.contx)
 
                     self.contx["x"] = x
                     self.contx["y"] = y + 1
-                    self.raw_nexty = eval(self.compil_graph, {}, self.contx)
-                    self.nextx = self.raw_nextx - self.result
-                    self.nexty = self.raw_nexty - self.result
-                    self.thickness = (self.nextx ** 2 + self.nexty ** 2) ** 0.5
-                    if self.thickness > 0 and abs(self.result - self.result_eq) / self.thickness < 0.99:
-                       self.points.append((x, y))
+                    raw_nexty = eval(self.compil_graph, {}, self.contx)
+                    nextx = raw_nextx - result
+                    nexty = raw_nexty - result
+                    thickness = (nextx ** 2 + nexty ** 2) ** 0.5
+                    if thickness > 0 and abs(result - result_eq) / thickness < 0.99:
+                       points.append((x, y))
                 except:
                     continue
-        return self.points
+        return points
 
 class Canvas:
     def __init__(self):
         pygame.init()
         self.graph = pygame.display.set_mode((800, 600))
-        pygame.display.set_caption("графический калькулятор 0.22")
+        pygame.display.set_caption("графический калькулятор 0.31")
         self.clock = pygame.time.Clock()
         self.graph.fill((0, 0, 0))
         self.pixel = pygame.PixelArray(self.graph)
 
     def Render(self, points):
+        l = 0
         for i in points:
-            self.pixel[i[0] + 400, -i[1] + 300] = (255, 0, 0)
-            pygame.display.update()
+            if 0 <= i[0] + 400 < 800 and 0 <= -i[1] + 300 < 600:
+                self.pixel[i[0] + 400, -i[1] + 300] = (255, 0, 0)
+
+            l += 1
+            if l % 1000 == 0:
+                pygame.display.update()
+        pygame.display.update()
+        del self.pixel
 
 class Running:
     def __init__(self, graph, eq):

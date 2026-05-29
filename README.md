@@ -1,9 +1,9 @@
 # graphing calc
 
-[русские сюда](https://github.com/dam1519/graphic_calc#%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B5-%D1%81%D1%8E%D0%B4%D0%B0)
+[русские сюда](#русские-сюда)
 
 ## eng
-it's a graphing calc made with python pygame. it can: plot the graph max(|x|,|y|) = 50
+it's a graphing calc made with python pygame. it can: plot the graph max(|x|,|y|) = 7^2
 
 ### how to run
 
@@ -43,12 +43,16 @@ Added some functions and optimisation
 
 Move code to one class. I didn't move the loop because I just didn't
 
+#### 0.31
+
+Move code to three classes include main loop. and now square is 7^2 size
+
 ### notice for eng
 
 i translate text with ai because i bad know english. this text dont translated with ai
 
 ## русские сюда
-это графический калькулятор на python pygame. он может: построить график x^2+y^2=50^2
+это графический калькулятор на python pygame. он может: построить график max(|x|,|y|) = 7^2
 
 ### для запуска
 
@@ -88,3 +92,7 @@ pip install pygame
 #### 0.3
 
 перемещение кода в один класс. а цикл я не перенес потому что не перенес
+
+#### 0.31
+
+перенес код в три класса включая главный цикл. и теперь у квадрата размер 7^2
