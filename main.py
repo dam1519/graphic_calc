@@ -66,9 +66,9 @@ class Canvas:
         del self.pixel
 
 class Running:
-    def __init__(self, graph, eq):
+    def __init__(self, graphic, eq):
         self.canvas = Canvas()
-        self.graph = GraphicEngine(graph, eq)
+        self.graph = GraphicEngine(graphic, eq)
         self.graph_flag = 1
         self.running = True
         self.clock = pygame.time.Clock()
