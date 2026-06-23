@@ -37,7 +37,8 @@ Added some functions and now it plots a square
 
 #### 0.22
 
-Added some functions and optimisation
+Added some functions and optimization. Well, not just "some" — a 14x optimization happened!
+
 
 #### 0.3
 
@@ -46,6 +47,10 @@ Move code to one class. I didn't move the loop because I just didn't
 #### 0.31
 
 Move code to three classes include main loop. and now square is 7^2 size
+
+#### 0.4
+
+Now here has interface on tkinter! And i so exuse but now it 25% ai work 😭. btw now for abs you can type ||
 
 ### notice for eng
 
@@ -87,7 +92,7 @@ pip install pygame
 
 #### 0.22
 
-немножечко функций и оптимизации
+немножечко функций и оптимизации. ну ладно не немножечко 14/1 оптимизация произошла
 
 #### 0.3
 
@@ -96,3 +101,7 @@ pip install pygame
 #### 0.31
 
 перенес код в три класса включая главный цикл. и теперь у квадрата размер 7^2
+
+#### 0.4
+
+теперь в программе есть интерфейс на tkinter! И я очень извиняюсь но теперь это на 25% работа ИИ 😭. кстати теперь для функции модуля вы можете просто написать ||
