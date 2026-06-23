@@ -50,7 +50,11 @@ Move code to three classes include main loop. and now square is 7^2 size
 
 #### 0.4
 
-Now here has interface on tkinter! And i so exuse but now it 25% ai work 😭. btw now for abs you can type ||
+Now it has a Tkinter interface! And I'm so sorry, but now it's 25% AI work 😭. BTW, now you can type || for absolute value
+
+#### 0.41
+
+Now operator selection works
 
 ### notice for eng
 
@@ -105,3 +109,7 @@ pip install pygame
 #### 0.4
 
 теперь в программе есть интерфейс на tkinter! И я очень извиняюсь но теперь это на 25% работа ИИ 😭. кстати теперь для функции модуля вы можете просто написать ||
+
+#### 0.41
+
+теперь выбор операторов работает

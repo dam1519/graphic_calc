@@ -10,10 +10,11 @@ import re
 
 # calculations
 class GraphicEngine:
-    def __init__(self, left_side, right_side):
+    def __init__(self, left_side, right_side, op):
         self.graph_flag = 1
         self.inputi = left_side
         self.graph_input =  re.sub(r'\|([^|]+)\|', r'abs(\1)', self.inputi.replace("^", "**"))
+        self.op = op
         self.raw_eq = right_side
         self.eq = re.sub(r'\|([^|]+)\|', r'abs(\1)', self.raw_eq.replace("^", "**"))
         self.contx = {"sin": math.sin,
@@ -30,27 +31,77 @@ class GraphicEngine:
 # engine
     def Calculation(self):
         points = []
-        for x in range(-400, 400):
-            for y in range(-300, 300):
-                try:
-                    self.contx["x"] = x
-                    self.contx["y"] = y
-                    result = eval(self.compil_graph, {}, self.contx)
-                    result_eq = eval(self.compil_eq, {}, self.contx)
+        match self.op:
+            case "=":
+                for x in range(-400, 400):
+                    for y in range(-300, 300):
+                        try:
+                            self.contx["x"] = x
+                            self.contx["y"] = y
+                            result = eval(self.compil_graph, {}, self.contx)
+                            result_eq = eval(self.compil_eq, {}, self.contx)
 
-                    self.contx["x"] = x + 1
-                    raw_nextx = eval(self.compil_graph, {}, self.contx)
+                            self.contx["x"] = x + 1
+                            raw_nextx = eval(self.compil_graph, {}, self.contx)
 
-                    self.contx["x"] = x
-                    self.contx["y"] = y + 1
-                    raw_nexty = eval(self.compil_graph, {}, self.contx)
-                    nextx = raw_nextx - result
-                    nexty = raw_nexty - result
-                    thickness = (nextx ** 2 + nexty ** 2) ** 0.5
-                    if thickness > 0 and abs(result - result_eq) / thickness < 0.99:
-                       points.append((x, y))
-                except:
-                    continue
+                            self.contx["x"] = x
+                            self.contx["y"] = y + 1
+                            raw_nexty = eval(self.compil_graph, {}, self.contx)
+                            nextx = raw_nextx - result
+                            nexty = raw_nexty - result
+                            thickness = (nextx ** 2 + nexty ** 2) ** 0.5
+                            if thickness > 0 and abs(result - result_eq) / thickness < 0.99:
+                               points.append((x, y))
+                        except:
+                            continue
+            case "<":
+                for x in range(-400, 400):
+                    for y in range(-300, 300):
+                        try:
+                            self.contx["x"] = x
+                            self.contx["y"] = y
+                            result = eval(self.compil_graph, {}, self.contx)
+                            result_eq = eval(self.compil_eq, {}, self.contx)
+                            if result < result_eq:
+                               points.append((x, y))
+                        except:
+                            continue
+            case ">":
+                for x in range(-400, 400):
+                    for y in range(-300, 300):
+                        try:
+                            self.contx["x"] = x
+                            self.contx["y"] = y
+                            result = eval(self.compil_graph, {}, self.contx)
+                            result_eq = eval(self.compil_eq, {}, self.contx)
+                            if result > result_eq:
+                               points.append((x, y))
+                        except:
+                            continue
+            case "<=":
+                for x in range(-400, 400):
+                    for y in range(-300, 300):
+                        try:
+                            self.contx["x"] = x
+                            self.contx["y"] = y
+                            result = eval(self.compil_graph, {}, self.contx)
+                            result_eq = eval(self.compil_eq, {}, self.contx)
+                            if result <= result_eq:
+                               points.append((x, y))
+                        except:
+                            continue
+            case ">=":
+                for x in range(-400, 400):
+                    for y in range(-300, 300):
+                        try:
+                            self.contx["x"] = x
+                            self.contx["y"] = y
+                            result = eval(self.compil_graph, {}, self.contx)
+                            result_eq = eval(self.compil_eq, {}, self.contx)
+                            if result >= result_eq:
+                               points.append((x, y))
+                        except:
+                            continue
         return points
 
 # pygame
@@ -58,24 +109,29 @@ class Canvas:
     def __init__(self):
         pygame.init()
         self.graph = pygame.display.set_mode((800, 600))
-        pygame.display.set_caption("графический калькулятор 0.4")
+        pygame.display.set_caption("графический калькулятор 0.41")
         self.clock = pygame.time.Clock()
         self.graph.fill((0, 0, 0))
 
 # render points
     def Render(self, points):
         self.graph.fill((0, 0, 0))
-        pixel = pygame.PixelArray(self.graph)
-        l = 0
-        for i in points:
-            if 0 <= i[0] + 400 < 800 and 0 <= -i[1] + 300 < 600:
-                pixel[i[0] + 400, -i[1] + 300] = (255, 0, 0)
 
-            l += 1
-            if l % 1000 == 0:
-                pygame.display.update()
-        pygame.display.update()
+        points_copy = list(points)
+
+        pixel = pygame.PixelArray(self.graph)
+        for i in points_copy:
+            try:
+                screen_x = int(i[0] + 400)
+                screen_y = int(-i[1] + 300)
+
+                if 0 <= screen_x < 800 and 0 <= screen_y < 600:
+                    pixel[screen_x, screen_y] = (255, 0, 0)
+            except IndexError:
+                continue
+
         del pixel
+        pygame.display.flip()
 
 # tkinter
 class Interface:
@@ -83,7 +139,7 @@ class Interface:
         self.on_build_callback = on_build_callback
 
         self.root = tk.Tk()
-        self.root.title("графический калькулятор 0.4")
+        self.root.title("графический калькулятор 0.41")
         self.root.geometry("1100x600")
         self.root.resizable(False, False)
 
@@ -97,11 +153,7 @@ class Interface:
         self.entry_left.insert(0, "max(|x|, |y|)")
         self.entry_left.pack(pady=1, padx=1)
 
-        self.label = tk.Label(self.sidebar, text="""это заглушка/this dont work
-↓""", font="Monocraft")
-        self.label.pack()
-
-        self.operator = ttk.Combobox(self.sidebar, values=["=", "!=", "<", ">", "<=", ">="], width=5, state="readonly", font="Monocraft")
+        self.operator = ttk.Combobox(self.sidebar, values=["=", "<", ">", "<=", ">="], width=5, state="readonly", font="Monocraft")
         self.operator.pack(pady=1, padx=1)
         self.operator.current(0)
 
@@ -121,8 +173,9 @@ class Interface:
 # function for button
     def on_click(self):
         left = self.entry_left.get()
+        op = self.operator.get()
         right = self.entry_right.get()
-        self.on_build_callback(left, right)
+        self.on_build_callback(left, right, op)
 
 # embed id
     def get_embed_id(self):
@@ -143,8 +196,8 @@ class Running:
         self.Interface.root.after(16, self.loop)
 
 # rebuild graph
-    def rebuild(self, graph, eq):
-        self.engine = GraphicEngine(graph, eq)
+    def rebuild(self, graph, eq, op):
+        self.engine = GraphicEngine(graph, eq, op)
         self.graph_flag = 1
 
 # main loop
